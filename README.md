@@ -4,6 +4,9 @@ This Node.js based website is an interactive blog application where users can po
 ## GitHub URL
 https://github.com/ktrnthsnr/The-Tech-Blog
 
+## Heroku
+https://ktrnthsnr-the-tech-blog.herokuapp.com
+
 ## Table of Contents
 * [Description](#description)
 * [Installations](#installations)
@@ -44,7 +47,7 @@ https://github.com/ktrnthsnr/The-Tech-Blog
 
 ## Usage
 - View the website in Heroku
-- `https://ktrnthsn-the-tech-blog.herokuapp.com`
+- `https://ktrnthsnr-the-tech-blog.herokuapp.com` 
 
 - If cloning, to view the mysql database tables, within the VSCode terminal, start MySQL
 -   $ `mysql -u root -p`
@@ -62,7 +65,7 @@ https://github.com/ktrnthsnr/The-Tech-Blog
 - Insomnia GET sample <insert>
 - Local site walkthrough of the GET, POST, PULL, DELETE API routes through Insomnia
 <insert link>
-- Heroku sample GET URL for single user https://ktrnthsn-the-tech-blog.herokuapp.com/api/users/1
+- Heroku sample GET URL for single user `https://ktrnthsn-the-tech-blog.herokuapp.com/api/users/1`
 
 ## Technology
 Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, npm, HTML, CSS, bcrypt, dotenv, express-handlebars
