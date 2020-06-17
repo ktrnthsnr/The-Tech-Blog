@@ -4,10 +4,12 @@
 --   mysql> source db/seeds.sql
 
 
-DROP DATABASE IF EXISTS just_tech_news_db;
+DROP DATABASE IF EXISTS the_tech_blog_db;
 
-CREATE DATABASE just_tech_news_db;
+CREATE DATABASE the_tech_blogs_db;
 
-show databases;
+show databases
 
 -- to exit the msql2 command line, type quit
+
+-- use the_tech_blog_db;
