@@ -62,11 +62,14 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 - `http://localhost:3002/`
 
 ### Testing
-- Insomnia GET sample <insert>
-- Insomnia testing tool walkthrough, for GET, POST, PULL, DELETE API routes
-https://drive.google.com/file/d/1xQ-qNtEdffLbVjptfn0YuCiK6-KTBmAR/view
+- You may view the API routes through Heroku, at their API route URL locations, for example,
 - Heroku sample GET URL for single user 
-- https://ktrnthsnr-the-tech-blog.herokuapp.com/api/users/1
+https://ktrnthsnr-the-tech-blog.herokuapp.com/api/users/1
+![Heroku GET](./img/getUser1.jpg "Heroku GET sample")
+
+- For testing locally, here is an Insomnia walkthrough, for GET, POST, PULL, DELETE API routes
+https://drive.google.com/file/d/1xQ-qNtEdffLbVjptfn0YuCiK6-KTBmAR/view
+
 - Deploy to Heroku walkthrough (for more info see db_notes.md)
 https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
 
