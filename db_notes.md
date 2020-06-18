@@ -21,12 +21,12 @@ containing mysql copy from a prev assignment..
 by typing:     `mysql -u root -p`    in your command line, then add your MySQL password when prompted.
 
 - Check the database and tables were created by running in the MySQL command line,
-* mysql> `USE <insert>; show tables; describe Category; describe Product; describe Tag;describe ProductTag;`
+* mysql> `USE <insert>; show tables; describe comment; describe post; describe Tag;describe user;describe vote;`
 - You should see this result
 - ![showtables](./img/<insert>.jpg "Show tables")
 
-- Check the tables after seeding by running in the mysql command line,
-* mysql> `select * from department; select * from role; select * from employee;`
+- Check the tables after seeding by running in the mysql command line, sample
+* mysql> `select * from comment;select * from post;select * from user;select * from vote;`
 - You should see this result
 - ![selecttables](./img/<insert>.jpg "Select tables")
 
