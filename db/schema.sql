@@ -8,7 +8,11 @@ DROP DATABASE IF EXISTS the_tech_blog_db;
 
 CREATE DATABASE the_tech_blogs_db;
 
-show databases
+-- show databases;
+
+use the_tech_blogs_db;
+
+
 
 -- to exit the msql2 command line, type quit
 

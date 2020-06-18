@@ -15,6 +15,27 @@ router.get('/', (req, res) => {
       }); 
 });
 
+// ========================== get a single comment by ID
+// Insomnia endpoint GET http://localhost:3001/api/comments/1
+router.get('/:id', (req, res) => {
+  Comment.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCommentData => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: 'No comment found with this id' });
+        return;
+      }
+      res.json(dbCommentData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 
 // ----------------- Insert to POST /api/comments
 // sample Insomnia insert POST http://localhost:3001/api/comments

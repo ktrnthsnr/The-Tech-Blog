@@ -65,7 +65,8 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 - Insomnia GET sample <insert>
 - Local site walkthrough of the GET, POST, PULL, DELETE API routes through Insomnia
 <insert link>
-- Heroku sample GET URL for single user `https://ktrnthsn-the-tech-blog.herokuapp.com/api/users/1`
+- Heroku sample GET URL for single user 
+- https://ktrnthsnr-the-tech-blog.herokuapp.com/api/users/1
 
 ## Technology
 Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, npm, HTML, CSS, bcrypt, dotenv, express-handlebars
