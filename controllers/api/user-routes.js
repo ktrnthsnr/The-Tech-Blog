@@ -78,16 +78,26 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-        });
+    // session info in routes
+    .then(dbUserData => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+    
+        res.json(dbUserData);
+      });
+    })
+        // .then(dbUserData => res.json(dbUserData))
+        // .catch(err => {
+        // console.log(err);
+        // res.status(500).json(err);
+        // });
     });
 
 // route found at http://localhost:3001/api/users/login
-router.post('/login', (req, res) => {
-    // expects {email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {email: 'sam@gmail.com', password: 'pass1234'}
+    router.post('/login', (req, res) => {
       User.findOne({
         where: {
           email: req.body.email
@@ -98,19 +108,22 @@ router.post('/login', (req, res) => {
           return;
         }
     
-        // res.json({ user: dbUserData }); 
-    
-        // Verify user
         const validPassword = dbUserData.checkPassword(req.body.password);
-        // if false
-        if (!validPassword) {
-            res.status(400).json({ message: 'Incorrect password!' });
-            return;
-          }
-          // if true
-          res.json({ user: dbUserData, message: 'You are now logged in!' });
     
-      });  
+        if (!validPassword) {
+          res.status(400).json({ message: 'Incorrect password!' });
+          return;
+        }
+    
+        req.session.save(() => {
+          // declare session variables
+          req.session.user_id = dbUserData.id;
+          req.session.username = dbUserData.username;
+          req.session.loggedIn = true;
+    
+          res.json({ user: dbUserData, message: 'You are now logged in!' });
+        });
+      });
     });
 
 // test in Insomnia POST http://localhost:3001/api/users

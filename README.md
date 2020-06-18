@@ -44,6 +44,8 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 - `npm install bcrypt`
 - Install Handlebars template engine
 - `npm install express-handlebars`
+- Install these npm libraries to add session control
+- `npm i express-session connect-session-sequelize`
 
 ## Usage
 - View the website in Heroku
