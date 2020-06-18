@@ -29,3 +29,16 @@ by typing:     `mysql -u root -p`    in your command line, then add your MySQL p
 * mysql> `select * from department; select * from role; select * from employee;`
 - You should see this result
 - ![selecttables](./img/<insert>.jpg "Select tables")
+
+## How to publish to Heroku
+- Get an account setup at the Heroku site
+- After pushing to your master GitHub repo, then run the following in the bash terminal
+- `heroku create <yourgithubname-blogname>`
+- In Heroku, under the new app, provision JawsDB, and update the Config with the key\value env variables. Then run in the bash terminal to push the latest version to Heroku 
+- `git push heroku master`
+- Goto the URL where Heroku published the content
+https://ktrnthsnr-the-tech-blog.herokuapp.com
+- Walkthrough on how to deploy to Heroku from VSCode 
+https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
+- For more info, see your Heroku Dashboard: 
+https://dashboard.heroku.com/apps

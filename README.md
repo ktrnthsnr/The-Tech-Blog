@@ -56,17 +56,19 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 - mysql> `source db/schema.sql`
 - Validate the db was created, `show databases;` or by entering `use the_tech_blog_db;`
 - To populate the tables to test, see Testing.md for more info
-- To test locally,start the server in terminal bash, which will create the tables if not already created
+- To test locally, start the server in terminal bash, which will create the tables if not already created
 - $ `npm start`
 - Validate the homepage after starting the server, locally 
-- `http://localhost:3001/`
+- `http://localhost:3002/`
 
 ### Testing
 - Insomnia GET sample <insert>
-- Local site walkthrough of the GET, POST, PULL, DELETE API routes through Insomnia
-<insert link>
+- Insomnia testing tool walkthrough, for GET, POST, PULL, DELETE API routes
+https://drive.google.com/file/d/1xQ-qNtEdffLbVjptfn0YuCiK6-KTBmAR/view
 - Heroku sample GET URL for single user 
 - https://ktrnthsnr-the-tech-blog.herokuapp.com/api/users/1
+- Deploy to Heroku walkthrough (for more info see db_notes.md)
+https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
 
 ## Technology
 Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, npm, HTML, CSS, bcrypt, dotenv, express-handlebars
