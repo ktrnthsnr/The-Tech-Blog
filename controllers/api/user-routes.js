@@ -125,6 +125,20 @@ router.post('/', (req, res) => {
       });
     });
 
+// --- logout
+router.post('/logout', (req, res) => {
+  // User.findOne({
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
+});
+// });
+
 // test in Insomnia POST http://localhost:3001/api/users
         // {
         //     "username": "",
