@@ -93,7 +93,7 @@ router.post('/', (req, res) => {
         // console.log(err);
         // res.status(500).json(err);
         // });
-    });
+});
 
 // route found at http://localhost:3001/api/users/login
     // expects {email: 'sam@gmail.com', password: 'pass1234'}
@@ -116,7 +116,6 @@ router.post('/', (req, res) => {
         }
     
         req.session.save(() => {
-          // declare session variables
           req.session.user_id = dbUserData.id;
           req.session.username = dbUserData.username;
           req.session.loggedIn = true;
@@ -131,8 +130,7 @@ router.post('/', (req, res) => {
         //     "username": "",
         //     "email": "",
         //     "password": ""
-        // }
-        
+        // }        
 
 
 
