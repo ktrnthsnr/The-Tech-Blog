@@ -74,6 +74,66 @@ router.get('/login', (req, res) => {
     res.render('login');
   });
 
+// -- route to a single post
+router.get('/post/:id', (req, res) => {
+  Post.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'post_url',
+      'title',
+      'created_at',
+      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+    ],
+    include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      const post = dbPostData.get({ plain: true });
+      res.render('single-post', { post });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+
+  // // -- test for route to a single post 
+    // //test  GET post http://localhost:3002/post/1
+    //   router.get('/post/:id', (req, res) => {
+    //     const post = {
+    //       id: 1,
+    //       post_url: 'https://express_session.com/guide/',
+    //       title: 'Express Session Docs',
+    //       created_at: new Date(),
+    //       vote_count: 9,
+    //       comments: [{}, {}],
+    //       user: {
+    //         username: 'tester'
+    //       }
+    //     };
+      
+    //     res.render('single-post', { post });
+    //   });
 
 module.exports = router;
 
