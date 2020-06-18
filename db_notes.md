@@ -21,7 +21,7 @@ containing mysql copy from a prev assignment..
 by typing:     `mysql -u root -p`    in your command line, then add your MySQL password when prompted.
 
 - Check the database and tables were created by running in the MySQL command line,
-* mysql> `USE <insert>; show tables; describe comment; describe post; describe Tag;describe user;describe vote;`
+* mysql> `USE the_tech_blog_db; show tables; describe comment; describe post; describe Tag;describe user;describe vote;`
 - You should see this result
 - ![showtables](./img/<insert>.jpg "Show tables")
 
