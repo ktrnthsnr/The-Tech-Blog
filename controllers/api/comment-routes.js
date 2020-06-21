@@ -45,19 +45,21 @@ router.get('/:id', (req, res) => {
         //     "post_id": 2
         // }
 
-
-router.post('/', (req, res) => {
-    Comment.create({
-        comment_text: req.body.comment_text,
-        user_id: req.body.user_id,
-        post_id: req.body.post_id
-      })
-        .then(dbCommentData => res.json(dbCommentData))
-        .catch(err => {
-          console.log(err);
-          res.status(400).json(err);
+        router.post('/', (req, res) => {
+             if (req.session) { // -- session
+            Comment.create({
+              comment_text: req.body.comment_text,
+              post_id: req.body.post_id,
+               user_id: req.session.user_id   // -- session user id
+            })
+              .then(dbCommentData => res.json(dbCommentData))
+              .catch(err => {
+                console.log(err);
+                res.status(400).json(err);
+              });
+          }
         });
-});
+
 
 // ----------------- DELETE /api/comments
 // sample Insomnia DELETE http://localhost:3001/api/comments/2
