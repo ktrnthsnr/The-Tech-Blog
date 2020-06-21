@@ -125,17 +125,38 @@ router.post('/', (req, res) => {
       });
   });
 
-// -- after refactor with Post class
 
-router.put('/upvote', (req, res) => {
-    // custom static method created in models/Post.js
-    Post.upvote(req.body, { Vote })
-      .then(updatedPostData => res.json(updatedPostData))
-      .catch(err => {
-        console.log(err);
-        res.status(400).json(err);
-      });
-  });
+// ========================== update add an upvote
+// Insomnia endpoint PUT http://localhost:3001/api/posts/upvote
+// // test JSON in PUT 
+            //         // {
+            //         //     "user_id": 1,
+            //         //     "post_id": 1
+            //         //   }
+            router.put('/upvote', (req, res) => {
+              // make sure the session exists first
+              if (req.session) {
+                // pass session id along with all destructured properties on req.body
+                Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
+                  .then(updatedVoteData => res.json(updatedVoteData))
+                  .catch(err => {
+                    console.log(err);
+                    res.status(500).json(err);
+                  });
+              }
+            });
+
+//   // -- after refactor with Post class
+
+// router.put('/upvote', (req, res) => {
+//     // custom static method created in models/Post.js
+//     Post.upvote(req.body, { Vote })
+//       .then(updatedPostData => res.json(updatedPostData))
+//       .catch(err => {
+//         console.log(err);
+//         res.status(400).json(err);
+//       });
+//   });
 
 // -- previous  before adding above refactored code
 

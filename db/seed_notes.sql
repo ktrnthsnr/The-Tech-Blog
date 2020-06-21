@@ -9,10 +9,15 @@ VALUES ("The Tech Blog goes public!", "https://techblogsample/press", 1, CURRENT
 
 -- BACKUP:  CD /db, then backup of tables and data, run in bash
 --  use just_tech_news_db;
---      mysqldump -u root -p C  >  the_tech_blogs_db.sql
+--      mysqldump -u root -p  the_tech_blogs_db >  the_tech_blogs_db.sql
 
 -- RESTORE: cd /db
 -- will create the db and import the tables\data
 --          mysql -u root -p the_tech_blogs_db< the_tech_blogs_db.sql
 -- import syntax
 -- mysqld  the_tech_blogs_db  < the_tech_blogs_db.sql
+
+--------------------------------------------------------------------------------------------------------------
+-- Steps:  1. backup, 2. then push to github and heroku 3. seed through mysql workbench, or slower, Insomnia
+-- TO DO: add walkthrough on how to see via MySql Db with a seeds.sql script, 
+-- showing how to connect with JawsDB credentials to the DB then pushing the INSERTS remotely
