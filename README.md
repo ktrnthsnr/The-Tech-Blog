@@ -56,24 +56,53 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 - Enter your MySQL password when prompted
 - To create the database and run the schema script, enter in the MySQL2 command line,
 - mysql> `source db/schema.sql`
-- Validate the db was created, `show databases;` or by entering `use the_tech_blog_db;`
+- Validate the db was created, mysql > `show databases;` or by entering `use the_tech_blog_db;`
 - To populate the tables to test, see Testing.md for more info
 - To test locally, start the server in terminal bash, which will create the tables if not already created
 - $ `npm start`
 - Validate the homepage after starting the server, locally 
 - `http://localhost:3002/`
 
+### How to publish to Heroku
+- If you are uploading your app to Heroko, proceed in this order:
+1. Get an account setup at the Heroku site, to include setting up payment plan for the JawsDB add-on. Note, we'll be selecting the free version but a credit card is required.
+2. Validate the Node site is working locally, starting the app in bash with an 
+$ `npm start`, and verifying in the mysql command prompt that the Sequelize models are creating the tables as expected. Also validate the GET and POST endpoints are working through Insomnia and http://localhost:3002 
+
+Note: before pushing to master, make sure the build table option is set to `true` within the server.js,
+            `sequelize.sync({ force: true }).then(() => { `
+
+1. Push your Node app to github `git push origin master`
+2. After pushing to your master GitHub repo, then run the following in the bash terminal
+- $ `heroku create <yourgithubname-blogname>`
+- In Heroku, under the new app, Resources tab, search and select JawsDB, then provision JawsDB free or default version. View the Heroko Dashboard to provision JawsDB add-on:
+- $ `heroku addons:open jawsdb`
+- Verify you are connected to the correct Heroku repo,
+- $ `git remote -v`
+Then run in the bash terminal to push the latest version to Heroku.
+- $ `git push heroku master`
+- Finally, go to the URL where Heroku published the content
+https://ktrnthsnr-the-tech-blog.herokuapp.com
+- For more info, here is a walkthrough on how to deploy to Heroku from VSCode 
+https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
+- For more info, see your Heroku Dashboard: 
+https://dashboard.heroku.com/apps
+- Other: If you need to push the github master repo to a different Heroko app location, which was already created, switch with this statement first,  
+- $ `heroku git:remote -a <newname>`
+- Then verify the location and push to the new heroku master location
+- $ `git remote -v`
+- $ `git push heroku master`
+
 ### Testing
+- Setup an account, then after uploading view the Heroko Dashboard
+- $ `heroku addons:open jawsdb`
 - You may view the API routes through Heroku, at their API route URL locations, for example,
 - Heroku sample GET URL for single user 
 https://ktrnthsnr-the-tech-blog.herokuapp.com/api/users/1
 ![Heroku GET](./img/getUser1.jpg "Heroku GET sample")
 
-- For testing locally, here is an Insomnia walkthrough, for GET, POST, PULL, DELETE API routes
+- For testing locally, here is an Insomnia walkthrough to view GET, POST, PULL, DELETE API routes
 https://drive.google.com/file/d/1xQ-qNtEdffLbVjptfn0YuCiK6-KTBmAR/view
-
-- Deploy to Heroku walkthrough (for more info see db_notes.md)
-https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
 
 ## Technology
 Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, ES6, npm, HTML, CSS, bcrypt, dotenv, express-handlebars

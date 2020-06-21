@@ -31,14 +31,23 @@ by typing:     `mysql -u root -p`    in your command line, then add your MySQL p
 - ![selecttables](./img/<insert>.jpg "Select tables")
 
 ## How to publish to Heroku
-- Get an account setup at the Heroku site
-- After pushing to your master GitHub repo, then run the following in the bash terminal
+- If you are uploading your app to Heroko, proceed in this order:
+1. Get an account setup at the Heroku site, to include setting up payment plan for the JawsDB add-on. Note, we'll be selecting the free version but a credit card is required.
+2. Validate the Node site is working locally, starting the app in bash with an `npm start`, and verifying in the mysql command prompt that the Sequelize models are creating the tables as expected. Also validate the GET and POST endpoints are working through Insomnia and http://localhost:3003 
+
+Note: before pushing to master, make sure the build table option is set to true within the server.js,
+            `sequelize.sync({ force: true }).then(() => { `
+
+1. Push your Node app to github `git push origin master`
+2. After pushing to your master GitHub repo, then run the following in the bash terminal
 - `heroku create <yourgithubname-blogname>`
-- In Heroku, under the new app, provision JawsDB, and update the Config with the key\value env variables. Then run in the bash terminal to push the latest version to Heroku 
+- In Heroku, under the new app, Resources tab, search and select JawsDB, then provision JawsDB free or default version. View the Heroko Dashboard to provision JawsDB add-on:
+- `$ heroku addons:open jawsdb`
+Then run in the bash terminal to push the latest version to Heroku.
 - `git push heroku master`
 - Goto the URL where Heroku published the content
 https://ktrnthsnr-the-tech-blog.herokuapp.com
-- Walkthrough on how to deploy to Heroku from VSCode 
+- Here is a walkthrough on how to deploy to Heroku from VSCode 
 https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
 - For more info, see your Heroku Dashboard: 
 https://dashboard.heroku.com/apps

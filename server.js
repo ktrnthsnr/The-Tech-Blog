@@ -48,7 +48,7 @@ app.use(routes);
 
 // turn on connection to database and server
 sequelize.sync({ force: false }).then(() => {       // set to 'true' to recreate all tables.
-    app.listen(PORT, () => console.log('Now listening'));
+    app.listen(PORT, () => console.log('Now listening on port ' + PORT));
   });
 
 //         // if set force: true, all tables will be recreated with npm start
