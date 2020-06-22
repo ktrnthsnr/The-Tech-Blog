@@ -8,6 +8,10 @@ router.use('/api', apiRoutes);
 const homeRoutes = require('./home-routes.js');
 router.use('/', homeRoutes);
 
+//  dashboard
+const dashboardRoutes = require('./dashboard-routes.js');
+router.use('/dashboard', dashboardRoutes);
+
 // back-end
   // produces error if endpoint does not exist
 router.use((req, res) => {
