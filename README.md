@@ -11,6 +11,7 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 * [Description](#description)
 * [Installations](#installations)
 * [Usage](#usage)
+* [Testing](#testing)
 * [Technology](#technology)
 * [Contribution](#contribution)
 
@@ -96,7 +97,7 @@ https://dashboard.heroku.com/apps
 - $ `git remote -v`
 - $ `git push heroku master`
 
-### Testing
+## Testing
 - Setup an account, then after uploading view the Heroko Dashboard
 - $ `heroku addons:open jawsdb`
 - You may view the API routes through Heroku, at their API route URL locations, for example,
@@ -106,9 +107,11 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com/api/users/1
 
 - For testing locally, here is an Insomnia walkthrough to view GET, POST, PULL, DELETE API routes
 https://drive.google.com/file/d/1xQ-qNtEdffLbVjptfn0YuCiK6-KTBmAR/view
+- For Jest testing, in the bash terminal type
+- `npm test`
 
 ## Technology
-Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, ES6, npm, HTML, CSS, bcrypt, dotenv, express-handlebars
+Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, ES6, npm, HTML, CSS, bcrypt, dotenv, express-handlebars, Jest
 
 ## Contribution
 ktrnthsnr
