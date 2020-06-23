@@ -59,8 +59,9 @@ Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScri
 - View the website in Heroku
 - `https://ktrnthsnr-the-tech-blog.herokuapp.com` 
 - Here is walkthrough of the basic functionality of this basic blog site
-- Homepage
 https://drive.google.com/file/d/1dJ-OlTGk3EytEQz7VkF12kezHgnAioXQ/view
+- 
+- Homepage
 ![Homepage](./img/Homepage.jpg "Heroku homepage")
 - Signup
 ![signup](./img/signup.jpg "Heroku signup")
