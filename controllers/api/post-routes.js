@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, User, Vote, Comment } = require("../../models");
 const sequelize = require('../../config/connection');   // required for upvote
+const withAuth = require('../../utils/auth');
 
 // ========================== get all posts
 // Insomnia endpoint GET http://localhost:3001/api/posts
@@ -240,7 +241,9 @@ router.put('/:id', (req, res) => {
 
 // ========================== Delete a single post
 // Insomnia endpoint DELETE  http://localhost:3001/api/posts/2
-router.delete('/:id', (req, res) => {
+// router.delete('/:id', (req, res) => { 
+// adding only authenticated or withAuth logged in users can delete
+router.delete('/:id', withAuth, (req, res) => {
     Post.destroy({
       where: {
         id: req.params.id
