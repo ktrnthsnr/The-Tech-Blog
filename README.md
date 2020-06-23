@@ -68,7 +68,7 @@ https://drive.google.com/file/d/1dJ-OlTGk3EytEQz7VkF12kezHgnAioXQ/view
 - User dashboard
 ![userdashboard](./img/userdashboard.jpg "Heroku dashboard")
 - Comment dashboard
-![commentdashboard](./img/commentdashboard.jpg "Comment dashboard")
+![commentdashboard](./img/commentdashboard.jpg "comment dashboard")
 
 - If cloning, to view the mysql database tables, within the VSCode terminal, start MySQL
 -   $ `mysql -u root -p`
