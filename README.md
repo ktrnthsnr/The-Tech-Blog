@@ -1,5 +1,5 @@
 ﻿# The Tech Blog
-This Node.js based website is an interactive blog application where users can post, upvote, and comment on tech posts. 
+This Node.js based blog website is an interactive application where users can post, upvote, and comment on each other's tech posts. 
 
 ## GitHub URL
 https://github.com/ktrnthsnr/The-Tech-Blog
@@ -9,10 +9,11 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 
 ## Table of Contents
 * [Description](#description)
+* [Technology](#technology)
 * [Installations](#installations)
 * [Usage](#usage)
 * [Testing](#testing)
-* [Technology](#technology)
+* [Userstory](#Userstory)
 * [Contribution](#contribution)
 
 ## Description
@@ -21,6 +22,9 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 - Sequelize is a JavaScript library and a Promise based Node.js object relational mapping (ORM) package that acts as a dialect to various SQL server software like MySQL. The Sequalize ORM is used to interact between the Expres.js web server and the MySQL database. The Sequelize model script provides the query language to view, add, update or delete content from the database. Finally, the Express.js API route scripts will call the database using the Sequelize models or database queries. 
 - For this application, the Sequelize ORM interacts with the Heroku JawsDB add-on which provides the MySQL database and holds the tables' content. The API endpoints for each query type can be viewed and tested via the debugging tool Insomnia, which can render GET, POST, PULL, and DELETE routes through its browser.
 - The second part of the development of this content development system includes creating the front-end interface. While adhering to the Model-View-Controller or MVC standards, once deployed to Heroku, the website will render dynamic HTML using the handlebar.js template engine, and will include user authentication.
+
+## Technology
+Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, ES6, npm, HTML, CSS, bcrypt, dotenv, express-handlebars, Jest
 
 ## Installations
 - Prereq: install VSCode, Node.js, and MySQL http://dev.mysql.com/downloads/
@@ -54,6 +58,8 @@ https://ktrnthsnr-the-tech-blog.herokuapp.com
 ## Usage
 - View the website in Heroku
 - `https://ktrnthsnr-the-tech-blog.herokuapp.com` 
+- Here is walkthrough of the basic functionality of this basic blog site
+https://drive.google.com/file/d/1dJ-OlTGk3EytEQz7VkF12kezHgnAioXQ/view
 
 - If cloning, to view the mysql database tables, within the VSCode terminal, start MySQL
 -   $ `mysql -u root -p`
@@ -110,8 +116,48 @@ https://drive.google.com/file/d/1xQ-qNtEdffLbVjptfn0YuCiK6-KTBmAR/view
 - For Jest testing, in the bash terminal type
 - `npm test`
 
-## Technology
-Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScript, ES6, npm, HTML, CSS, bcrypt, dotenv, express-handlebars, Jest
+## Userstory
+
+* User Story
+AS A developer who writes about tech
+I WANT a CMS-style blog site
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
+
+* Acceptance Criteria
+GIVEN a CMS-style blog site
+WHEN I visit the site for the first time
+THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
+WHEN I click on the homepage option
+THEN I am taken to the homepage
+WHEN I click on any other links in the navigation
+THEN I am prompted to either sign up or sign in
+WHEN I choose to sign up
+THEN I am prompted to create a username and password
+WHEN I click on the sign-up button
+THEN my user credentials are saved and I am logged into the site
+WHEN I revisit the site at a later time and choose to sign in
+THEN I am prompted to enter my username and password
+WHEN I am signed in to the site
+THEN I see navigation links for the homepage, the dashboard, and the option to log out
+WHEN I click on the homepage option in the navigation
+THEN I am taken to the homepage and presented with existing blog posts that include 
+the post title and the date created
+WHEN I click on an existing blog post
+THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+WHEN I enter a comment and click on the submit button while signed in
+THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+WHEN I click on the dashboard option in the navigation
+THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+WHEN I click on the button to add a new blog post
+THEN I am prompted to enter both a title and contents for my blog post
+WHEN I click on the button to create a new blog post
+THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
+WHEN I click on one of my existing posts in the dashboard
+THEN I am able to delete or update my post and taken back to an updated dashboard
+WHEN I click on the logout option in the navigation
+THEN I am signed out of the site
+WHEN I am idle on the page for more than a set time
+THEN I am automatically signed out of the site
 
 ## Contribution
 ktrnthsnr
