@@ -59,7 +59,15 @@ Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScri
 - View the website in Heroku
 - `https://ktrnthsnr-the-tech-blog.herokuapp.com` 
 - Here is walkthrough of the basic functionality of this basic blog site
+- Homepage
 https://drive.google.com/file/d/1dJ-OlTGk3EytEQz7VkF12kezHgnAioXQ/view
+![Homepage](./img/Homepage.jpg "Heroku homepage")
+- Signup
+![signup](./img/signup.jpg "Heroku signup")
+- User dashboard
+![userdashboard](./img/userdashboard.jpg "Heroku dashboard")
+- Comment dashboard
+![commentdashboard](./img/userdashboard.jpg "Comment dashboard")
 
 - If cloning, to view the mysql database tables, within the VSCode terminal, start MySQL
 -   $ `mysql -u root -p`
