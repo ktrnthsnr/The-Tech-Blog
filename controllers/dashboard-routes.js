@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
+const withAuth = require('../utils/auth');
 
 // -- initial test
 // GET http://localhost:3002/dashboard
@@ -10,7 +11,8 @@ const { Post, User, Comment } = require('../models');
 
 
 //  find add posts from a user GET http://localhost:3002/dashboard/
-router.get('/', (req, res) => {
+    // router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
       where: {
           // session
