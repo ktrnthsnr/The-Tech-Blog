@@ -1,6 +1,11 @@
+<a href="/"> &larr; Back to homepage</a>
+<br>
+<br>
+<br>
 <article class="post">
   <div class="title">
-    <a href="{{post.post_url}}" target="_blank">{{post.title}}</a>
+     <a href="/post/{{post.id}}">{{post.title}}</a>
+     
     <span>({{post.post_url}})</span>
   </div>
   <div class="meta">
@@ -17,8 +22,8 @@
   </div>
 
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+    <button type="submit">Add Comment</button>
+    <button type="button" class="upvote-btn">Upvote</button>
   </div>
 </form>
 {{/if}}

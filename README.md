@@ -29,31 +29,34 @@ Heroku JawsDB, MySQL, MySQL2, Express.js, Sequelize, Insomnia, Node.js, JavaScri
 ## Installations
 - Prereq: install VSCode, Node.js, and MySQL http://dev.mysql.com/downloads/
 - After cloning the GitHub repo to your local drive, run the following in the VSCode command-line terminal
-- Install npm
-- $ `npm init -y` or $ `npm install`
-- Manaully update the package.json to  `"main": "server.js",` instead of index.js
-- Create a .gitignore file in the root and add `node_modules` to this file
-- If you need to re-add the dependencies, run $ `npm install`
-- Install Express, Sequelize and mysql2
-- $ `npm install express sequelize mysql2`
-- Install NPM package dotenv to manage sensitive data, info https://www.npmjs.com/package/dotenv
-- $ `npm install dotenv`
-- To install the database for this project, you'll need a Heroku account with the JawsDB add-on. When uploaded to Heroku, add the process.env variables within the Heroku dashboard. For local testing, you can create an .env file to store your credentials. More info in the Testing.md
-- For more info, https://elements.heroku.com/addons/jawsdb
-- To install mysql manually (if not already installed per above)
-- $ `npm install -g mysql`
-- $ `npm install mysql2 --save`
-- Install console.table to print MySQL in console
-- $ `npm install console.table --save`
-- Install bcrypt 
-- `npm install bcrypt`
-- Install Handlebars template engine
-- `npm install express-handlebars`
-- Install these npm libraries to add session control
-- `npm i express-session connect-session-sequelize`
-- Install Jest to unit test helpers
-- `npm i jest -D`
- - Then update package.json to "test": "jest" 
+- Install all related dependencies 
+$ `npm i`
+
+- If you'd like to install each of the components individually, they are:
+      - $ `npm init -y` or $ `npm install` 
+      - Manaully update the package.json to  `"main": "server.js",` instead of index.js
+      - Create a .gitignore file in the root and add `node_modules` to this file
+      - If you need to re-add the dependencies, run $ `npm install`
+      - Install Express, Sequelize and mysql2
+      - $ `npm install express sequelize mysql2`
+      - Install NPM package dotenv to manage sensitive data, info https://www.npmjs.com/package/dotenv
+      - $ `npm install dotenv`
+      - To install the database for this project, you'll need a Heroku account with the JawsDB add-on. When uploaded to Heroku, add the process.env variables within the Heroku dashboard. For local testing, you can create an .env file to store your credentials. More info in the Testing.md
+      - For more info, https://elements.heroku.com/addons/jawsdb
+      - To install mysql manually (if not already installed per above)
+      - $ `npm install -g mysql`
+      - $ `npm install mysql2 --save`
+      - Install console.table to print MySQL in console
+      - $ `npm install console.table --save`
+      - Install bcrypt 
+      - `npm install bcrypt`
+      - Install Handlebars template engine
+      - `npm install express-handlebars`
+      - Install these npm libraries to add session control
+      - `npm i express-session connect-session-sequelize`
+      - Install Jest to unit test helpers
+      - `npm i jest -D`
+      - Then update package.json to "test": "jest" 
 
 ## Usage
 - View the website in Heroku
@@ -88,7 +91,7 @@ https://drive.google.com/file/d/1dJ-OlTGk3EytEQz7VkF12kezHgnAioXQ/view
 2. Validate the Node site is working locally, starting the app in bash with an 
 $ `npm start`, and verifying in the mysql command prompt that the Sequelize models are creating the tables as expected. Also validate the GET and POST endpoints are working through Insomnia and http://localhost:3002 
 
-Note: before pushing to master, make sure the build table option is set to `true` within the server.js,
+- Note: before pushing to master, make sure the build table option is set to `true` within the server.js,
             `sequelize.sync({ force: true }).then(() => { `
 
 1. Push your Node app to github `git push origin master`
@@ -98,19 +101,62 @@ Note: before pushing to master, make sure the build table option is set to `true
 - $ `heroku addons:open jawsdb`
 - Verify you are connected to the correct Heroku repo,
 - $ `git remote -v`
-Then run in the bash terminal to push the latest version to Heroku.
+- Then run in the bash terminal to push the latest version to Heroku. Note, this will create new tables, without any data.
 - $ `git push heroku master`
-- Finally, go to the URL where Heroku published the content
+- Finally, go to the URL where Heroku published the site, for example,
 https://ktrnthsnr-the-tech-blog.herokuapp.com
-- For more info, here is a walkthrough on how to deploy to Heroku from VSCode 
+- Then set Sequelize sync to false in server.js, and republish (`git push heroku master`) so the tables do not continue to be recreated as Heroku will sleep then restart on the free version (npm start) at least once or so a day, clearing any tables. If you'd like to keep any data entered on the website Sequelize sync on server.js will have to be set to false.
+- For more info, here is a walkthrough on how to deploy to Heroku from the VSCode bash terminal.
 https://drive.google.com/file/d/1TNf9OdHX92O0jyQCso5bBjieMaatqJej/view
 - For more info, see your Heroku Dashboard: 
 https://dashboard.heroku.com/apps
 - Other: If you need to push the github master repo to a different Heroko app location, which was already created, switch with this statement first,  
-- $ `heroku git:remote -a <newname>`
+- $ `heroku git:remote -a <websitename>`
 - Then verify the location and push to the new heroku master location
 - $ `git remote -v`
 - $ `git push heroku master`
+
+### How to seed the tables 
+
+- Here are a few ways to populate your mysql database.
+
+- LOCALLY
+-----------
+
+- To your local db, you can populate two ways:
+
+1) through the UI at http://localhost:3001
+
+2) through Insomnia through POST, PUT and DELETE API endpoints
+
+
+- REMOTELY
+----------
+
+- This app creates the tables through Sequelize onto the Heroku JawsDB add-on, however, the tables are empty. How to seed these tables?
+
+
+1) Locally first: Add posts to the application. Login with various users and make posts, comments, etc, ie updating the local mysql db.
+
+2) Then run a backup of your local db, with mysqldump 
+
+      `mysqldump -u root -p techly_db > techly_db.sql`
+
+` in terminal bash on your local mysql DB, then you can look within the sql script for just the INSERT statements
+
+3) Store those insert statements from that mysqldump in a notepad, then 
+
+4) Open Heroku > jawsdb to gain the db connection info, ie, hostname\username\password\database name, 
+
+5) Then download mysql workbench, and create a connection to the jawsDB with those credentials, 
+
+6) Then open the connection in the workbench to view the heroku db remotely.  In the SQL editor window type in the database ID string as seen in Jawdb (some big number - not the db name - like USE p38u2538u4345; to login for example.) 
+
+- Then you can INSERT and SELECT on the db tables remotely per your original script you created in step 1 & 2.
+
+7) Again if this step is too cumbersome (really it's meant for seeding larger db's) you can also setup the inserts or posts from Insomnia, if you only have a few users or posts as well.
+
+
 
 ## Testing
 - Setup an account, then after uploading view the Heroko Dashboard
