@@ -1,3 +1,7 @@
+-- NOTE: Once you seed the tables with content, 
+-- then reset the Sequelize sync located in the server.js to false, 
+-- otherwise the tables will be recreated, rows emptied.
+
 -- seed post with one to start
 INSERT INTO post (title, post_url, user_id, created_at, updated_at)
 VALUES ("The Tech Blog goes public!", "https://techblogsample/press", 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
